@@ -37,8 +37,9 @@ class MyError(Exception):
 class testLinear_itp(unittest.TestCase):
 
     def setUp(self):
-        self.x = [86.03543, 81.03543, 76.03543, 61.03543, 50, 25, 10, 5, 0]
-        self.y = [20.14, 18.64, 17.14, 15.64, 14.28, 15.04, 15.74, 16.44, 17.14]
+        self.x = [86.03543, 81.03543, 76.03543, 61.03543, 50, 25, 10, 0, 5]
+        self.y = [20.14, 18.64, 17.14, 15.64, 14.28, 15.04, 15.74, 17.14, 16.44]
+
         self.y = [i for i in self.y]
         self.li = Linear_itp(self.x, self.y)
 
