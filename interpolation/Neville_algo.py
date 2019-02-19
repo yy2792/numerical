@@ -52,6 +52,8 @@ class Poly_itp():
             temp_x = [round(x, 4) for x in mx[i] if x is not None]
             print(temp_x)
 
+        print('********************************************')
+
 
 class MyError(Exception):
     def __init__(self, message):
