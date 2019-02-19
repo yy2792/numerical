@@ -51,20 +51,6 @@ class testLinear_itp(unittest.TestCase):
 
     def test_interpolate_general_case(self):
 
-        case1 = -2
-
-        try:
-            self.li.interpolate(case1)
-        except MyError as er:
-            self.assertEqual(er.message[:11], "Index Error")
-
-        case2 = 90
-
-        try:
-            self.li.interpolate(case1)
-        except MyError as er:
-            self.assertEqual(er.message[:11], "Index Error")
-
         case3 = 60
 
         case3_res = round(self.li.interpolate(case3), 4)
@@ -80,6 +66,20 @@ class testLinear_itp(unittest.TestCase):
         self.assertEqual(case4_res, case4_ans, "wrong trial with {}".format(case4))
 
     def test_interpolate_corner_case(self):
+
+        case1 = -2
+
+        try:
+            self.li.interpolate(case1)
+        except MyError as er:
+            self.assertEqual(er.message[:11], "Index Error")
+
+        case2 = 90
+
+        try:
+            self.li.interpolate(case1)
+        except MyError as er:
+            self.assertEqual(er.message[:11], "Index Error")
 
         case5 = 0
 
@@ -103,7 +103,9 @@ class testLinear_itp(unittest.TestCase):
         self.assertEqual(case7_res, case7_ans, "wrong trial with {}".format(case7))
 
 
+if __name__ == "__main__":
 
+    unittest.main()
 
 
 
