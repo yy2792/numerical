@@ -34,6 +34,7 @@ class Poly_itp():
 
         helper(0, len(x))
 
+        print('result for target {} is: '.format(target))
         self.print_matrix(nv_matrix)
 
         return nv_matrix[0][-1]
@@ -72,6 +73,16 @@ class testPoly_itp(unittest.TestCase):
         self.y = [i for i in self.y]
         self.pi = Poly_itp(self.x, self.y)
 
+        self.x_2 = [86.03543, 81.03543]
+        self.y_2 = [20.14, 18.64]
+
+        self.pi2 = Poly_itp(self.x_2, self.y_2)
+
+        self.x_3 = [86.03543]
+        self.y_3 = [20.14]
+
+        self.pi3 = Poly_itp(self.x_3, self.y_3)
+
     def test_interpolate_general_case(self):
 
         case1 = 45
@@ -92,6 +103,46 @@ class testPoly_itp(unittest.TestCase):
         case3_ans = 19.20794
 
         self.assertEqual(case3_ans, round(case3_res, 5), "wrong trial with {}".format(case3))
+
+    def test_interpolate_small_case(self):
+
+        case1 = 45
+
+        case1_res = self.pi2.interpolate(case1)
+        case1_ans = 7.8294
+
+        self.assertEqual(case1_ans, round(case1_res, 4), "wrong trial with {}".format(case1))
+
+        case2 = 86.03543
+
+        case2_res = self.pi2.interpolate(case2)
+        case2_ans = 20.14
+
+        self.assertEqual(case2_ans, round(case2_res, 2), 'wrong trial with {}'.format(case2))
+
+        case3 = 86.03543
+
+        case3_res = self.pi3.interpolate(case2)
+        case3_ans = 20.14
+
+        self.assertEqual(case3_ans, round(case3_res, 2), 'wrong trial with {}'.format(case3))
+
+        case4 = 100
+
+        case4_res = self.pi3.interpolate(case2)
+        case4_ans = 20.14
+
+        self.assertEqual(case4_ans, round(case4_res, 2), 'wrong trial with {}'.format(case4))
+
+
+    def test_interpolate_corner_case(self):
+
+        case1 = 5
+
+        case1_res = self.pi.interpolate(case1)
+        case1_ans = 16.44
+
+        self.assertEqual(case1_ans, round(case1_res, 2), 'wrong trial with {}'.format(case1))
 
 
 if __name__ == "__main__":
