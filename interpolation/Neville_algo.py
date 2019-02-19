@@ -8,13 +8,13 @@ class Poly_itp():
         self.x = [float(i[0]) for i in temp]
         self.y = [float(i[1]) for i in temp]
 
-    def interpolate(self, target):
+    def interpolate_func(self, target, x, y):
 
-        nv_matrix = [[None for i in range(len(self.x) + 1)] for j in range(len(self.x))]
+        nv_matrix = [[None for i in range(len(x) + 1)] for j in range(len(x))]
 
-        for i in range(len(self.x)):
-            nv_matrix[i][0] = self.x[i]
-            nv_matrix[i][1] = self.y[i]
+        for i in range(len(x)):
+            nv_matrix[i][0] = x[i]
+            nv_matrix[i][1] = y[i]
 
         def helper(i, j):
 
@@ -32,10 +32,25 @@ class Poly_itp():
 
             nv_matrix[i][j] = ((target - upper) * nv_matrix[i+1][j-1] - (target - lower) * nv_matrix[i][j-1]) / (lower - upper)
 
-        helper(0, len(self.x))
+        helper(0, len(x))
+
+        self.print_matrix(nv_matrix)
 
         return nv_matrix[0][-1]
 
+    def interpolate(self, target):
+
+        return self.interpolate_func(target, self.x[:], self.y[:])
+
+    def interpolate_rev(self, target):
+
+        return self.interpolate_func(target, self.x[::-1], self.y[::-1])
+
+    def print_matrix(self, mx):
+
+        for i in range(len(mx)):
+            temp_x = [round(x, 4) for x in mx[i] if x is not None]
+            print(temp_x)
 
 
 class MyError(Exception):
@@ -63,6 +78,18 @@ class testPoly_itp(unittest.TestCase):
         case1_ans = 13.81027
 
         self.assertEqual(case1_ans, round(case1_res, 5), "wrong trial with {}".format(case1))
+
+        case2_res = self.li.interpolate_rev(case1)
+        case2_ans = 13.81027
+
+        self.assertEqual(case2_ans, round(case2_res, 5), "wrong trial with {}".format(case1))
+
+        case3 = 90
+
+        case3_res = self.li.interpolate(case3)
+        case3_ans = 19.20794
+
+        self.assertEqual(case3_ans, round(case3_res, 5), "wrong trial with {}".format(case3))
 
 
 if __name__ == "__main__":
