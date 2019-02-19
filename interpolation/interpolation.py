@@ -14,6 +14,10 @@ class Linear_itp():
 
     def interpolate(self, target):
 
+        # corner case here, if x_0 is fed in, i equals 0 but raise an error (since we use bisect_left)
+        if target == self.x[0]:
+            return self.y[0]
+
         i = bisect_left(self.x, target) - 1
         if i < 0 or i >= len(self.x):
             raise MyError('Index Error: The interpolated value must be between {} and {}'
@@ -44,7 +48,7 @@ class testLinear_itp(unittest.TestCase):
 
         self.assertEqual(res_slopes, [round(i, 2) for i in self.li.slopes], "slopes not right")
 
-    def test_interpolate(self):
+    def test_interpolate_general_case(self):
 
         case1 = -2
 
@@ -73,6 +77,29 @@ class testLinear_itp(unittest.TestCase):
         case4_ans = 18.3294
 
         self.assertEqual(case4_res, case4_ans, "wrong trial with {}".format(case4))
+
+    def test_interpolate_corner_case(self):
+
+        case5 = 0
+
+        case5_res = round(self.li.interpolate(case5), 4)
+        case5_ans = 17.14
+
+        self.assertEqual(case5_res, case5_ans, "wrong trial with {}".format(case5))
+
+        case6 = 86.03543
+
+        case6_res = round(self.li.interpolate(case6), 4)
+        case6_ans = 20.14
+
+        self.assertEqual(case6_res, case6_ans, "wrong trial with {}".format(case6))
+
+        case7 = 76.03543
+
+        case7_res = round(self.li.interpolate(case7), 4)
+        case7_ans = 17.14
+
+        self.assertEqual(case7_res, case7_ans, "wrong trial with {}".format(case7))
 
 
 
