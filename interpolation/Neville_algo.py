@@ -68,25 +68,25 @@ class testPoly_itp(unittest.TestCase):
         self.y = [20.14, 18.64, 17.14, 15.64, 14.28, 15.04, 15.74, 17.14, 16.44]
 
         self.y = [i for i in self.y]
-        self.li = Poly_itp(self.x, self.y)
+        self.pi = Poly_itp(self.x, self.y)
 
     def test_interpolate_general_case(self):
 
         case1 = 45
 
-        case1_res = self.li.interpolate(case1)
+        case1_res = self.pi.interpolate(case1)
         case1_ans = 13.81027
 
         self.assertEqual(case1_ans, round(case1_res, 5), "wrong trial with {}".format(case1))
 
-        case2_res = self.li.interpolate_rev(case1)
+        case2_res = self.pi.interpolate_rev(case1)
         case2_ans = 13.81027
 
         self.assertEqual(case2_ans, round(case2_res, 5), "wrong trial with {}".format(case1))
 
         case3 = 90
 
-        case3_res = self.li.interpolate(case3)
+        case3_res = self.pi.interpolate(case3)
         case3_ans = 19.20794
 
         self.assertEqual(case3_ans, round(case3_res, 5), "wrong trial with {}".format(case3))
