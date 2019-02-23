@@ -6,6 +6,7 @@ Index
 <!-- TOC -->
 - [Error in Polynomial Interpolation](#Error-in-Polynomial-Interpolation)
 - [Cubic Spline](#Cubic-Spline)
+- [MLES](#MLES)
 <!-- /TOC -->
 
 ## How good is Polynomial Interpolation?
