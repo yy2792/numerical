@@ -12,8 +12,6 @@ Index
 
 [Reference STBU 2.1.4]()
 
-![Error in Poly](images/errorinpoly.jpeg)
-
 
 [f1]: http://chart.apis.google.com/chart?cht=tx&chl=m=\frac{m_0}{\sqrt{1-{\frac{v^2}{c^2}}}}
 [f2]: http://chart.apis.google.com/chart?cht=tx&chl=E_k=mc^2-m_0c^2
@@ -46,7 +44,7 @@ Common constraints:
 
 - A. Natural Spline:<br>
 ![f_c6]<br>
-- B. Periodic:<br>
+- B. Periodic y0 = yn:<br>
 ![f_c7]<br>
 - C. First Derivative Assignment:<br>
 ![f_c9]<br>
@@ -63,6 +61,7 @@ Common constraints:
 Let ![w_1]<br>
 suppose f is sufficiently nice, then<br>
 ![w_2]<br>
+**I** = ![I_form](images/I_form.jpg)
 
 [w_1]:http://chart.apis.google.com/chart?cht=tx&chl={||f||}^2=\int_{a}^{b}{||f''(x)||}^2dx
 [w_2]:http://chart.apis.google.com/chart?cht=tx&chl={||f-S_{\Delta}||}^2={{||f||}^2-{||S_{\Delta}||}^2-2I}
@@ -70,7 +69,11 @@ suppose f is sufficiently nice, then<br>
 [Reference STBU 2.4.1.4]()
 
 - **Thm:**<br>
-A or B or C constraint above holds, ![w_4]
+A or B or C constraint above holds, ![w_4]<br>
+Minimum Curvature Property
+
+![I_form2](images/I_form2.jpg)
+
 
 [w_3]:http://chart.apis.google.com/chart?cht=tx&chl={||f||}^2=\int_{a}^{b}{||f''(x)||}^2dx
 [w_4]:http://chart.apis.google.com/chart?cht=tx&chl=I=0
