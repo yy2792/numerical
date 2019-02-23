@@ -134,11 +134,23 @@ Minimum Curvature Property <br>
 [mle9]:http://chart.apis.google.com/chart?cht=tx&chl=i_0\alpha
 [mle10]:http://chart.apis.google.com/chart?cht=tx&chl=d_{1}(t)=d_{2}(t)
 
-- ![mle9] instantaneous forward rate <br>
+- ![mle9] is instantaneous forward rate <br>
 
     - ![ins_1]
     > [reference JOHN HULL](#MLE)
     
-    - 
+    - ![ins_2]<br>
+    ![ins_3]<br>
+    ![ins_4]<br>
+    
+    - ![ins_5]<br>
+    Then we can prove ![ins_6]
+    
+    
     
 [ins_1]:http://chart.apis.google.com/chart?cht=tx&chl=f_t=R_t%2Bt\frac{{\pa}R_t}{{\pa}t}
+[ins_2]:http://chart.apis.google.com/chart?cht=tx&chl=d(t)=e^{-R_t{\time}t}
+[ins_3]:http://chart.apis.google.com/chart?cht=tx&chl=R_t=-\frac{1}{t}\ln{d(t)}
+[ins_4]:http://chart.apis.google.com/chart?cht=tx&chl=\frac{{\pa}R}{{\pa}t}=\frac{1}{t^2}\ln{d(t)}-\frac{d'(t)}{td(t)}
+[ins_5]:http://chart.apis.google.com/chart?cht=tx&chl=f_t=-\frac{d'(t)}{d(t)}
+[ins_6]:http://chart.apis.google.com/chart?cht=tx&chl=\lim_{t\to\infty}f_t=i_o\alpha
