@@ -10,10 +10,9 @@ Index
 
 ## Error in Polynomial Interpolation
 
-Reference STBU 2.1.4
+[Reference STBU 2.1.4]()
 
 ![Error in Poly](images/errorinpoly.jpeg)
-
 
 
 [f1]: http://chart.apis.google.com/chart?cht=tx&chl=m=\frac{m_0}{\sqrt{1-{\frac{v^2}{c^2}}}}
@@ -27,7 +26,7 @@ Reference STBU 2.1.4
 
 ![f_c1]
 
-Given ![f_c8]
+Given ![f_c8], 4n unkonwn
 
 - ![f_c2]<br>
 - ![f_c3]<br>
@@ -45,14 +44,34 @@ We have n, n, n-1, n-1, in all 4n-2 equations with 2 degrees freedom
 
 Common constraints:
 
-- Natural Spline:<br>
+- A. Natural Spline:<br>
 ![f_c6]<br>
-- Periodic:<br>
+- B. Periodic:<br>
 ![f_c7]<br>
-- First Derivative Assignment:<br>
-![f_c7]<br>
+- C. First Derivative Assignment:<br>
+![f_c9]<br>
+![f_c10]<br>
 
 [f_c6]:http://chart.apis.google.com/chart?cht=tx&chl=S''_{\Delta}(a)=S''_{\Delta}(b)=0
 [f_c7]:http://chart.apis.google.com/chart?cht=tx&chl=S^{k}_{\Delta}(a)=S^{k}_(b)
-[f_c8]:
+[f_c9]:http://chart.apis.google.com/chart?cht=tx&chl=S'_{\Delta}(a)=y_0'
+[f_c10]:http://chart.apis.google.com/chart?cht=tx&chl=S'_{\Delta}(b)=y_n'
 
+### Why Cubic?
+
+- **Thm:**<br> 
+Let ![w_1]<br>
+suppose f is sufficiently nice, then<br>
+![w_2]<br>
+
+[w_1]:http://chart.apis.google.com/chart?cht=tx&chl={||f||}^2=\int_{a}^{b}{||f''(x)||}^2dx
+[w_2]:http://chart.apis.google.com/chart?cht=tx&chl={||f-S_{\Delta}||}^2={{||f||}^2-{||S_{\Delta}||}^2-2I}
+
+[Reference STBU 2.4.1.4]()
+
+- **Thm:**<br>
+A or B or C constraint above holds, I = 0
+
+[w_3]:http://chart.apis.google.com/chart?cht=tx&chl={||f||}^2=\int_{a}^{b}{||f''(x)||}^2dx
+
+[Reference STBU 2.4.1.5]()
