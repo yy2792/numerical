@@ -22,7 +22,7 @@ hence ![poly_5] <br>
 - ![poly_7]
 - ...
 
-> [Reference STBU 2.1.4]()
+> [Reference STBU 2.1.4](#How_good_is_Polynomial_Interpolation)
 
 [poly_1]: http://chart.apis.google.com/chart?cht=tx&chl=\bar{x}
 [poly_2]: http://chart.apis.google.com/chart?cht=tx&chl=x_j
@@ -82,7 +82,7 @@ suppose f is sufficiently nice (see STBU), then<br>
 [w_1]:http://chart.apis.google.com/chart?cht=tx&chl={||f||}^2=\int_{a}^{b}{||f''(x)||}^2dx
 [w_2]:http://chart.apis.google.com/chart?cht=tx&chl={||f-S_{\Delta}||}^2={{||f||}^2-{||S_{\Delta}||}^2-2I}
 
-> [Reference STBU 2.4.1.4]()
+> [Reference STBU 2.4.1.4](#Cubic_Spline)
 
 - **Thm:**<br>
 A or B or C constraint above holds, ![w_4]<br>
@@ -94,12 +94,12 @@ Minimum Curvature Property <br>
 [w_4]:http://chart.apis.google.com/chart?cht=tx&chl=I=0
 [w_5]:http://chart.apis.google.com/chart?cht=tx&chl=f(x_i)=S_{\Delta}(x_i)
 
-> [Reference STBU 2.4.1.5]()
+> [Reference STBU 2.4.1.5](#Cubic_Spline)
 
 
 ## MLES
 
-> [Reference More Yield Curve Modelling at the Bank of Canada page 41- 48]()
+> [Reference More Yield Curve Modelling at the Bank of Canada page 41- 48](#Cubic_Spline)
 
 ### discount factor & long term instantaneous forward rate
 
@@ -119,9 +119,6 @@ Minimum Curvature Property <br>
     take ![mle6] as the smallest index s.t. ![mle7]<br>
     - ![mle8]<br>
 
-- ![mle9] instantaneous forward rate <br>
-
-
 [mle2]:http://chart.apis.google.com/chart?cht=tx&chl=\zeta_{1}%2B\zeta_{2}%2B\dots%2B\zeta_{D}=1
 [mle1]:http://chart.apis.google.com/chart?cht=tx&chl=d(t)=\sum_{k=1}^{D}\zeta_{k}e^{-k{\alpha}t}
 [alpha]:http://chart.apis.google.com/chart?cht=tx&chl=\alpha
@@ -135,3 +132,12 @@ Minimum Curvature Property <br>
 [mle8]:http://chart.apis.google.com/chart?cht=tx&chl=\lim_{t\to\infty}\frac{d(t)}{\zeta_{i_0}e^{-{\alpha}t}}=1
 [mle9]:http://chart.apis.google.com/chart?cht=tx&chl=i_0\alpha
 [mle10]:http://chart.apis.google.com/chart?cht=tx&chl=d_{1}(t)=d_{2}(t)
+
+- ![mle9] instantaneous forward rate <br>
+
+    - ![ins_1]
+    > [reference JOHN HULL](#MLE)
+    
+    - 
+    
+[ins_1]:http://chart.apis.google.com/chart?cht=tx&chl=f_t=R_t%2Bt\frac{{\pa}R_t}{{\pa}t}
