@@ -70,8 +70,9 @@ suppose f is sufficiently nice, then<br>
 [Reference STBU 2.4.1.4]()
 
 - **Thm:**<br>
-A or B or C constraint above holds, I = 0
+A or B or C constraint above holds, ![w_4]
 
 [w_3]:http://chart.apis.google.com/chart?cht=tx&chl={||f||}^2=\int_{a}^{b}{||f''(x)||}^2dx
+[w_4]:http://chart.apis.google.com/chart?cht=tx&chl=I=0
 
 [Reference STBU 2.4.1.5]()
