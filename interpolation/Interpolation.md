@@ -27,13 +27,32 @@ Reference STBU 2.1.4
 
 ![f_c1]
 
-![f_c2]<br>
-![f_c3]<br>
-![f_c4]<br>
-![f_c5]<br>
+Given ![f_c8]
+
+- ![f_c2]<br>
+- ![f_c3]<br>
+- ![f_c4]<br>
+- ![f_c5]<br>
 
 [f_c1]:http://chart.apis.google.com/chart?cht=tx&chl=P_i(x)=a_ix^3%2Bb_ix^2%2Bc_ix%2Bd_i
 [f_c2]:http://chart.apis.google.com/chart?cht=tx&chl=P_{i-1}(x_{i-1})=y_{i-1}
 [f_c3]:http://chart.apis.google.com/chart?cht=tx&chl=P_{i-1}(x_{i})=y_{i}
 [f_c4]:http://chart.apis.google.com/chart?cht=tx&chl=P_{i-1}'(x_{i})=P_i'(x_{i})
 [f_c5]:http://chart.apis.google.com/chart?cht=tx&chl=P_{i-1}''(x_{i})=P_i''(x_{i})
+[f_c8]:http://chart.apis.google.com/chart?cht=tx&chl=(x_0,y_0),(x_1,y_1),\dots,(x_n,y_n)
+
+We have n, n, n-1, n-1, in all 4n-2 equations with 2 degrees freedom
+
+Common constraints:
+
+- Natural Spline:<br>
+![f_c6]<br>
+- Periodic:<br>
+![f_c7]<br>
+- First Derivative Assignment:<br>
+![f_c7]<br>
+
+[f_c6]:http://chart.apis.google.com/chart?cht=tx&chl=S''_{\Delta}(a)=S''_{\Delta}(b)=0
+[f_c7]:http://chart.apis.google.com/chart?cht=tx&chl=S^{k}_{\Delta}(a)=S^{k}_(b)
+[f_c8]:
+
