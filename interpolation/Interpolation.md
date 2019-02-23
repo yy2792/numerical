@@ -44,8 +44,9 @@ Common constraints:
 
 - A. Natural Spline:<br>
 ![f_c6]<br>
-- B. Periodic y0 = yn:<br>
+- B. Periodic:<br>
 ![f_c7]<br>
+k = 0, 1, 2
 - C. First Derivative Assignment:<br>
 ![f_c9]<br>
 ![f_c10]<br>
@@ -59,7 +60,7 @@ Common constraints:
 
 - **Thm:**<br> 
 Let ![w_1]<br>
-suppose f is sufficiently nice, then<br>
+suppose f is sufficiently nice (see STBU), then<br>
 ![w_2]<br>
 **I** = ![I_form](images/I_form.jpg)
 
@@ -74,8 +75,10 @@ Minimum Curvature Property
 
 ![I_form2](images/I_form2.jpg)
 
+- ![w_5]
 
 [w_3]:http://chart.apis.google.com/chart?cht=tx&chl={||f||}^2=\int_{a}^{b}{||f''(x)||}^2dx
 [w_4]:http://chart.apis.google.com/chart?cht=tx&chl=I=0
+[w_5]:http://chart.apis.google.com/chart?cht=tx&chl=f(x_i)=S_{\Delta}(x_i)
 
 [Reference STBU 2.4.1.5]()
