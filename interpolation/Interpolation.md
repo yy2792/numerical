@@ -8,15 +8,30 @@ Index
 - [Cubic Spline](#Cubic-Spline)
 <!-- /TOC -->
 
-## Error in Polynomial Interpolation
+## How good is Polynomial Interpolation?
 
-[Reference STBU 2.1.4]()
+![I_form](images/poly1.jpg)
 
+- if ![poly_1] is one of ![poly_2], holds
+- else, consider ![poly_3] <br>
+for k that makes ![poly_4] <br>
+hence ![poly_5] <br>
+- Then we have n+1 zeros
+- F' has at least n+1 zeros in **I**, F'' has at least n zeros ,...
+- ![poly_6] has at least 1 zero in **I** (![poly_8])
+- ![poly_7]
+- ...
 
-[f1]: http://chart.apis.google.com/chart?cht=tx&chl=m=\frac{m_0}{\sqrt{1-{\frac{v^2}{c^2}}}}
-[f2]: http://chart.apis.google.com/chart?cht=tx&chl=E_k=mc^2-m_0c^2
-[f3]: http://chart.apis.google.com/chart?cht=tx&chl=E=mc^2
-[f4]: http://chart.apis.google.com/chart?cht=tx&chl=m_0c^2
+> [Reference STBU 2.1.4]()
+
+[poly_1]: http://chart.apis.google.com/chart?cht=tx&chl=\bar{x}
+[poly_2]: http://chart.apis.google.com/chart?cht=tx&chl=x_j
+[poly_3]: http://chart.apis.google.com/chart?cht=tx&chl=F(x)=f(x)-P_{01...n}(x)-kw(x)
+[poly_4]: http://chart.apis.google.com/chart?cht=tx&chl=F(\bar{x})=f(\bar{x})-P_{01...n}(\bar{x})-kw(\bar{x})
+[poly_5]: http://chart.apis.google.com/chart?cht=tx&chl=k=\frac{f(\bar{x})-P(\bar{x})}{w(\bar{x})}
+[poly_6]: http://chart.apis.google.com/chart?cht=tx&chl=F^{n%2B1}
+[poly_7]: http://chart.apis.google.com/chart?cht=tx&chl=k=\frac{f^{n+1}(\xi)}{(n%2B1)!}
+[poly_8]: http://chart.apis.google.com/chart?cht=tx&chl=\xi
 
 ## Cubic Spline
 
@@ -46,7 +61,7 @@ Common constraints:
 ![f_c6]<br>
 - B. Periodic:<br>
 ![f_c7]<br>
-k = 0, 1, 2
+for k = 0, 1, 2
 - C. First Derivative Assignment:<br>
 ![f_c9]<br>
 ![f_c10]<br>
@@ -67,7 +82,7 @@ suppose f is sufficiently nice (see STBU), then<br>
 [w_1]:http://chart.apis.google.com/chart?cht=tx&chl={||f||}^2=\int_{a}^{b}{||f''(x)||}^2dx
 [w_2]:http://chart.apis.google.com/chart?cht=tx&chl={||f-S_{\Delta}||}^2={{||f||}^2-{||S_{\Delta}||}^2-2I}
 
-[Reference STBU 2.4.1.4]()
+> [Reference STBU 2.4.1.4]()
 
 - **Thm:**<br>
 A or B or C constraint above holds, ![w_4]<br>
@@ -81,4 +96,7 @@ Minimum Curvature Property
 [w_4]:http://chart.apis.google.com/chart?cht=tx&chl=I=0
 [w_5]:http://chart.apis.google.com/chart?cht=tx&chl=f(x_i)=S_{\Delta}(x_i)
 
-[Reference STBU 2.4.1.5]()
+> [Reference STBU 2.4.1.5]()
+
+
+### 
