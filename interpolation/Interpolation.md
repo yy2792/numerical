@@ -154,3 +154,5 @@ Minimum Curvature Property <br>
 [ins_4]:http://chart.apis.google.com/chart?cht=tx&chl=\frac{{\pa}R}{{\pa}t}=\frac{1}{t^2}\ln{d(t)}-\frac{d'(t)}{td(t)}
 [ins_5]:http://chart.apis.google.com/chart?cht=tx&chl=f_t=-\frac{d'(t)}{d(t)}
 [ins_6]:http://chart.apis.google.com/chart?cht=tx&chl=\lim_{t\to\infty}f_t=i_o\alpha
+
+### Calibration using Bond Price
