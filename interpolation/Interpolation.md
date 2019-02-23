@@ -113,6 +113,7 @@ Minimum Curvature Property <br>
     
     - ![mle4]<br>
     ![mle5]<br>
+    but we have ![mle10]
     
     - ![mle2] -> at least one ![onezeta]<br>
     take ![mle6] as the smallest index s.t. ![mle7]<br>
@@ -133,3 +134,4 @@ Minimum Curvature Property <br>
 [mle7]:http://chart.apis.google.com/chart?cht=tx&chl=\zeta_{i_0}\ne0
 [mle8]:http://chart.apis.google.com/chart?cht=tx&chl=\lim_{t\to\infty}\frac{d(t)}{\zeta_{i_0}e^{-{\alpha}t}}=1
 [mle9]:http://chart.apis.google.com/chart?cht=tx&chl=i_0\alpha
+[mle10]:http://chart.apis.google.com/chart?cht=tx&chl=d_{1}(t)=d_{2}(t)
