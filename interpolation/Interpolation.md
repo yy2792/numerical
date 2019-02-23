@@ -144,6 +144,7 @@ Minimum Curvature Property <br>
     ![ins_4]<br>
     
     - ![ins_5]<br>
+    ![ins_7]<br>
     Then we can prove ![ins_6]
     
     
@@ -154,5 +155,29 @@ Minimum Curvature Property <br>
 [ins_4]:http://chart.apis.google.com/chart?cht=tx&chl=\frac{{\pa}R}{{\pa}t}=\frac{1}{t^2}\ln{d(t)}-\frac{d'(t)}{td(t)}
 [ins_5]:http://chart.apis.google.com/chart?cht=tx&chl=f_t=-\frac{d'(t)}{d(t)}
 [ins_6]:http://chart.apis.google.com/chart?cht=tx&chl=\lim_{t\to\infty}f_t=i_o\alpha
+[ins_7]:http://chart.apis.google.com/chart?cht=tx&chl=\lim_{t\to\infty}f_t=\frac{i_0\alpha\zeta_{i_0}e^{-i_0{\alpha}t}%2B\dots}{\zeta_{i_0}e^{-i_0{\alpha}t}%2B\dots}
 
 ### Calibration using Bond Price
+
+- ![cab_1]<br>
+![m_i] is the number of cash flows of bond i,
+![c_ij] is the magnitude of cash flow at ![tau_ij]
+
+[cab_1]:http://chart.apis.google.com/chart?cht=tx&chl=\hat{P}=\sum_{j=1}^{m_i}c_{ij}d(\tau_{ij})
+[m_i]:http://chart.apis.google.com/chart?cht=tx&chl=m_i
+[tau_ij]:http://chart.apis.google.com/chart?cht=tx&chl=\tau_{ij}
+[c_ij]:http://chart.apis.google.com/chart?cht=tx&chl=c_{ij}
+
+- ![cab_2]
+
+[cab_2]:http://chart.apis.google.com/chart?cht=tx&chl=\vec{Z}=(\zeta_{1},\dots,\zeta_{D})
+
+- ![cab_3]<br>
+![cab_4]<br>
+![cab_5]<br>
+where ![cab_6]
+
+[cab_3]:http://chart.apis.google.com/chart?cht=tx&chl=\hat{P_i}=\sum_{j=1}^{m_i}c_{ij}\sum_{k=1}^{D}\zeta_{k}e^{-k{\alpha}\tau_{ij}}
+[cab_4]:http://chart.apis.google.com/chart?cht=tx&chl==\sum_{k=1}^{D}\sum_{j=1}^{m_i}c_{ij}e^{-k{\alpha}\tau_{ij}}\zeta_{k}
+[cab_5]:http://chart.apis.google.com/chart?cht=tx&chl==\sum_{k=1}^{D}H_{ik}\zeta_{k}
+[cab_6]:http://chart.apis.google.com/chart?cht=tx&chl=H_{ik}=\sum_{j=1}^{m_i}c_{ij}e^{-k{\alpha}\tau_{ij}
