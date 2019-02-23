@@ -101,3 +101,35 @@ Minimum Curvature Property <br>
 
 > [Reference More Yield Curve Modelling at the Bank of Canada page 41- 48]()
 
+### discount factor & long term instantaneous forward rate
+
+- discount factor:<br>
+![mle1]<br>
+- Note d(0) = 1  -> ![mle2]<br>
+- ![zeta] are constants, D is dimension<br>
+
+- argue ![alpha] is constant (long term instantaneous forward rate?)
+    - try with ![mle3]<br>
+    
+    - ![mle4]<br>
+    ![mle5]<br>
+    
+    - ![mle2] -> at least one ![onezeta]<br>
+    take ![mle6] as the smallest index s.t. ![mle7]<br>
+    - ![mle8]<br>
+
+- ![mle9] instantaneous forward rate <br>
+
+
+[mle2]:http://chart.apis.google.com/chart?cht=tx&chl=\zeta_{1}%2B\zeta_{2}%2B\dots%2B\zeta_{D}=1
+[mle1]:http://chart.apis.google.com/chart?cht=tx&chl=d(t)=\sum_{k=1}^{D}\zeta_{k}e^{-k{\alpha}t}
+[alpha]:http://chart.apis.google.com/chart?cht=tx&chl=\alpha
+[zeta]:http://chart.apis.google.com/chart?cht=tx&chl=\zeta_{1},\zeta_{2},\dots,\zeta_{k}
+[mle3]:http://chart.apis.google.com/chart?cht=tx&chl=\lim_{t\to\infty}\frac{d(t)}{\zeta_{1}e^{-{\alpha}t}}?=1
+[mle4]:http://chart.apis.google.com/chart?cht=tx&chl=d_1(t)=e^{-2%t},\zeta_{1}=1,\alpha=2%
+[mle5]:http://chart.apis.google.com/chart?cht=tx&chl=d_2(t)=0%2Be^{-2\time1%t},\zeta_{1}=0,\zeta_{2}=1,\alpha=1%
+[onezeta]:http://chart.apis.google.com/chart?cht=tx&chl=\zeta_{i}\ne0
+[mle6]:http://chart.apis.google.com/chart?cht=tx&chl=i_0
+[mle7]:http://chart.apis.google.com/chart?cht=tx&chl=\zeta_{i_0}\ne0
+[mle8]:http://chart.apis.google.com/chart?cht=tx&chl=\lim_{t\to\infty}\frac{d(t)}{\zeta_{i_0}e^{-{\alpha}t}}=1
+[mle9]:http://chart.apis.google.com/chart?cht=tx&chl=i_0\alpha
