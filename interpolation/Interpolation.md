@@ -4,10 +4,15 @@ Interpolation
 Index
 ---
 <!-- TOC -->
+- [Neville's Algo](#Neville's_Algo)
 - [Error in Polynomial Interpolation](#Error-in-Polynomial-Interpolation)
 - [Cubic Spline](#Cubic-Spline)
 - [MLES](#MLES)
 <!-- /TOC -->
+
+## Neville's Algo
+
+![]
 
 ## How good is Polynomial Interpolation?
 
