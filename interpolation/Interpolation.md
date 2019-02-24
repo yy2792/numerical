@@ -181,3 +181,27 @@ where ![cab_6]
 [cab_4]:http://chart.apis.google.com/chart?cht=tx&chl==\sum_{k=1}^{D}\sum_{j=1}^{m_i}c_{ij}e^{-k{\alpha}\tau_{ij}}\zeta_{k}
 [cab_5]:http://chart.apis.google.com/chart?cht=tx&chl==\sum_{k=1}^{D}H_{ik}\zeta_{k}
 [cab_6]:http://chart.apis.google.com/chart?cht=tx&chl=H_{ik}=\sum_{j=1}^{m_i}c_{ij}e^{-k{\alpha}\tau_{ij}
+
+- with N bonds ![cab_7]
+- ![HZP](images/HZP.jpg)
+- ![cab_8]
+
+[cab_7]:http://chart.apis.google.com/chart?cht=tx&chl=\vec{P}=(P_1,P_2,\dots,P_N)
+[cab_8]:http://chart.apis.google.com/chart?cht=tx&chl=\vec{P}=H\vec{Z}
+
+- **Three Situations:**
+
+    - <b>If N = D: </b><br>
+    ![mle2], actually D-1 Bonds<br>
+    if H is invertible, ![cab_9] (exercise, when is H a good one?)<br>
+    
+    - <b> If N < D </b> decrease D <br>
+    - <b> If N > D </b> <br>
+    Minimize ![cab_10]
+    
+[cab_9]:http://chart.apis.google.com/chart?cht=tx&chl=\vec{Z}=H^{-1}\vec{P}
+[cab_10]:http://chart.apis.google.com/chart?cht=tx&chl=\sum_{i=1}^{N}w_i{(\hat{P_i}-P_i)}^2
+
+- Paper suggests ![cab_11] is the reciprocal of the modified duration of the ith bond
+
+[cab_11]:http://chart.apis.google.com/chart?cht=tx&chl=w_i
