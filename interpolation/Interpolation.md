@@ -12,7 +12,8 @@ Index
 
 ## Neville's Algo
 
-![]
+- Example:
+    ![nev_plot](images/nev_plot.jpg)
 
 ## How good is Polynomial Interpolation?
 

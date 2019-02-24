@@ -52,7 +52,7 @@ class Poly_itp():
         for i in range(len(mx)):
             temp_x = [round(x, 4) for x in mx[i] if x is not None]
             if len(temp_x) == 1:
-                print('{number:.4f}'.format(nunber=temp_x[0]))
+                print('{number:>8}'.format(nunber=temp_x[0]))
             elif i != 0 and len(temp_x) > 1:
                 temp_list = [('{number:>8} ' + u'\u2197' + ' ').format(number=i) for i in temp_x[:-1]]
                 temp_list.append('{number:>8}'.format(number=temp_x[-1]))
@@ -65,7 +65,6 @@ class Poly_itp():
                 print(temp_str)
 
         print('********************************************')
-        print(u'\u2197')
 
 
 class MyError(Exception):
