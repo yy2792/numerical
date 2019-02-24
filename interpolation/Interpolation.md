@@ -12,9 +12,11 @@ Index
 
 ## Neville's Algo
 
-- ![nev_algo]()
+- ![nev_algo]
 - Example:
     ![nev_plot](images/nev_plot.jpg)
+    
+[nev_algo]: http://chart.apis.google.com/chart?cht=tx&chl=P_{i_0,i_1,\dots,i_k}(x)=\frac{(x-x_{i_0})P_{i_1,\dots,i_k}(x)-(x-x_{i_k})P_{i_0,\dots,i_{k-1}}(x)}{x_{i_k}-x_{i_0}}
 
 ## How good is Polynomial Interpolation?
 
