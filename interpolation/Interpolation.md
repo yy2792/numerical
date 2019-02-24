@@ -200,8 +200,24 @@ where ![cab_6]
     Minimize ![cab_10]
     
 [cab_9]:http://chart.apis.google.com/chart?cht=tx&chl=\vec{Z}=H^{-1}\vec{P}
-[cab_10]:http://chart.apis.google.com/chart?cht=tx&chl=\sum_{i=1}^{N}w_i{(\hat{P_i}-P_i)}^2
+[cab_10]:http://chart.apis.google.com/chart?cht=tx&chl=L(\vec{Z})=\sum_{i=1}^{N}w_i{(\hat{P_i}-P_i)}^2
 
 - Paper suggests ![cab_11] is the reciprocal of the modified duration of the ith bond
 
+    - ![W](images/W.jpg)
+    - ![cab_12]
+    - ![cab_13]
+    - ![cab_14] for a = 1, ..., D
+    - ![cab_15]<br>
+    since ![cab_16]
+    - if invertible, ![cab_17]
+
+- Why reciprocal of modified duration? Price, Yield, more discrepancy at the end
+
 [cab_11]:http://chart.apis.google.com/chart?cht=tx&chl=w_i
+[cab_12]:http://chart.apis.google.com/chart?cht=tx&chl=\frac{{\pa}L(\vec{Z})}{{\pa}\zeta_{a}}=\sum_{i=1}^{N}w_i2(\hat{P_i}-P_i)\frac{{\pa}\hat{P}}{{\pa}\zeta_a}
+[cab_13]:http://chart.apis.google.com/chart?cht=tx&chl=\frac{{\pa}\hat{P}}{{\pa}\zeta_a}=\sum_{j=1}^{m_i}C_{ij}e^{-a{\alpha}\tau_{ij}}=H_{ia}
+[cab_14]:http://chart.apis.google.com/chart?cht=tx&chl=\frac{{\pa}L(\vec{Z})}{{\pa}\zeta_{a}}=\sum_{i=1}^{N}2W_i(\hat{P_i}-P_i)H_{ia}}=0
+[cab_15]:http://chart.apis.google.com/chart?cht=tx&chl=H^TW(\vec{\hat{P}}-\vec{P})=\vec{0}
+[cab_16]:http://chart.apis.google.com/chart?cht=tx&chl=\vec{\hat{P}}=H\vec{Z},H^TWH\vec{Z}=H^TW\vec{P}
+[cab_17]:http://chart.apis.google.com/chart?cht=tx&chl=\vec{Z}={(H^TWH)}^{-1}H^TW\vec{P}
