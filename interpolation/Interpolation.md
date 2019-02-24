@@ -12,6 +12,7 @@ Index
 
 ## Neville's Algo
 
+- ![nev_algo]()
 - Example:
     ![nev_plot](images/nev_plot.jpg)
 

@@ -54,8 +54,7 @@ class Poly_itp():
             if len(temp_x) == 1:
                 print('{number:>8}'.format(nunber=temp_x[0]))
             elif i != 0 and len(temp_x) > 1:
-                temp_list = [('{number:>8} ' + u'\u2197' + ' ').format(number=i) for i in temp_x[:-1]]
-                temp_list.append('{number:>8}'.format(number=temp_x[-1]))
+                temp_list = [('{number:>8} ' + u'\u2197' + ' ').format(number=i) for i in temp_x]
                 temp_str = ''.join(temp_list)
                 print(temp_str)
             elif i == 0 and len(temp_x) > 1:
