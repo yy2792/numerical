@@ -104,8 +104,27 @@ Minimum Curvature Property <br>
 [w_4]:http://chart.apis.google.com/chart?cht=tx&chl=I=0
 [w_5]:http://chart.apis.google.com/chart?cht=tx&chl=f(x_i)=S_{\Delta}(x_i)
 
-> [Reference STBU 2.4.1.5](#Cubic_Spline)
+> [Reference STBU 2.4.1.5](#Cubic_Spline) 
 
+- **Calculation**
+
+    - ![cubic_c1]
+    - ![cubic_c2]
+    - ![cubic_c3]
+    - ![cubic_c4]
+    - ![cubic_c5]
+    - ![cubic_c6]
+    - ![cubic_c7]
+    - ![cubic_c8]
+
+[cubic_c1]:http://chart.apis.google.com/chart?cht=tx&chl=S(x)=P_i(x),\\,\\,x\in[x_{i-1},\\,x_i]\\,,i=1,2,\dots,n
+[cubic_c2]:http://chart.apis.google.com/chart?cht=tx&chl=P_i(x)=a_i(x-x_{i-1})^3%2Bb_i(x-x_{i-1})^2%2Bc_i(x-x_{i-1})%2Bd_i
+[cubic_c3]:http://chart.apis.google.com/chart?cht=tx&chl=m_i=S''(x_i),\\,i=1,2,\dots,n
+[cubic_c4]:http://chart.apis.google.com/chart?cht=tx&chl=P_i(x)=y_{i-1}\\,\right\\,d_i=y_{i-1}
+[cubic_c5]:http://chart.apis.google.com/chart?cht=tx&chl=m_{i-1}=S''(x_{i-1})=P''_{i-1}(x_{i-1})=6a_i(x_{i-1}-x_{i-1})%2B2b_i
+[cubic_c6]:http://chart.apis.google.com/chart?cht=tx&chl=b_i=\frac{m_{i-1}}{2}
+[cubic_c7]:http://chart.apis.google.com/chart?cht=tx&chl=P''_i(x_i)=P''_{i%2B1}(x_i)\\,\right\\,a_i=\frac{m_i-m_{i-1}}{6h_i},\\,h_i=x_{i}-x_{i-1}
+[cubic_c8]:http://chart.apis.google.com/chart?cht=tx&chl=P_i(x)=y_i,\\,c_i=\frac{y_i-y_{i-1}}{h_i}-\frac{m_{i-1}%2B2m_{i-1}}{6}
 
 ## MLES
 
