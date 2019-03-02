@@ -130,6 +130,7 @@ Minimum Curvature Property <br>
     
     - we have: 
         - ![cubic](images/cubic.jpg)
+    - ![cubic](images/cubic3.jpg)
     - If we have natural spline, we have:
         - ![cubic_c12]
 
