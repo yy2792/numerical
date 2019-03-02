@@ -163,7 +163,8 @@ Minimum Curvature Property <br>
         C = ![cubic](images/cubic2.jpg)
         ![inv_5]
         - propostion: ![inv_6]
-        
+        - suppose A is not non-singular, we have ![inv_7]
+        - ![inv_8]
         
 
 [inv_1]:http://chart.apis.google.com/chart?cht=tx&chl=P_{N*N}=(P_{ij})
@@ -171,7 +172,9 @@ Minimum Curvature Property <br>
 [inv_3]:http://chart.apis.google.com/chart?cht=tx&chl=\mu_n=1\\,or\\,0\\,,\lambda_0=1\\,or\\,0\\\\\lambda_i,\mu_i>0,\\,\lambda_i%2B\mu_i=1,\\,j=1,\dots,n-1
 [inv_4]:http://chart.apis.google.com/chart?cht=tx&chl=\lambda_j=\frac{h_{j%2B1}}{h_j%2Bh_{j%2B1}},\\,\mu_j=1-\lambda_j
 [inv_5]:http://chart.apis.google.com/chart?cht=tx&chl=\varphi(C)=1
-[inv_6]:http://chart.apis.google.com/chart?cht=tx&chl=\varphi(PQ){\geq}\varphi(P)\varphi(Q)
+[inv_6]:http://chart.apis.google.com/chart?cht=tx&chl=\varphi(PQ){\leq}\varphi(P)\varphi(Q)
+[inv_7]:http://chart.apis.google.com/chart?cht=tx&chl=A\vec{X}=\vec{0}
+[inv_8]:http://chart.apis.google.com/chart?cht=tx&chl=\varphi(C)\varphi(X)\geq\varphi(CX)=\varphi(\(A-2I\)X)=2\varphi(X)
 
 ## MLES
 
