@@ -15,8 +15,14 @@ Index
 - ![nev_algo]
 - Example:
     ![nev_plot](images/nev_plot.jpg)
+- correctness:
+    - for ![nev_algo1] holds
+    - for other points,<br>
+      ![nev_algo2]
     
 [nev_algo]: http://chart.apis.google.com/chart?cht=tx&chl=P_{i_0,i_1,\dots,i_k}(x)=\frac{(x-x_{i_0})P_{i_1,\dots,i_k}(x)-(x-x_{i_k})P_{i_0,\dots,i_{k-1}}(x)}{x_{i_k}-x_{i_0}}
+[nev_algo1]: http://chart.apis.google.com/chart?cht=tx&chl=i_0,i_k
+[nev_algo2]: http://chart.apis.google.com/chart?cht=tx&chl=j=i_1,\dots,i_{k-1}
 
 ## How good is Polynomial Interpolation?
 
