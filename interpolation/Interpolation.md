@@ -120,6 +120,11 @@ Minimum Curvature Property <br>
         - ![cubic_c10]
         - ![cubic_c11]
         - n - 1 equations
+    
+    - we have: 
+        - ![cubic](images/cubic.jpg)
+    - If we have natural spline, we have:
+        - ![cubic_c12]
 
 [cubic_c1]:http://chart.apis.google.com/chart?cht=tx&chl=S(x)=P_i(x),\\,\\,x\in[x_{i-1},\\,x_i]\\,,i=1,2,\dots,n
 [cubic_c2]:http://chart.apis.google.com/chart?cht=tx&chl=P_i(x)=a_i(x-x_{i-1})^3%2Bb_i(x-x_{i-1})^2%2Bc_i(x-x_{i-1})%2Bd_i
@@ -130,9 +135,9 @@ Minimum Curvature Property <br>
 [cubic_c7]:http://chart.apis.google.com/chart?cht=tx&chl=P''_i(x_i)=P''_{i%2B1}(x_i)\\,\right\\,a_i=\frac{m_i-m_{i-1}}{6h_i},\\,h_i=x_{i}-x_{i-1}
 [cubic_c8]:http://chart.apis.google.com/chart?cht=tx&chl=P_i(x)=y_i,\\,c_i=\frac{y_i-y_{i-1}}{h_i}-\frac{m_{i-1}%2B2m_{i-1}}{6}
 [cubic_c9]:http://chart.apis.google.com/chart?cht=tx&chl=m_i,\\,i=0,1,\dots,n
-[cubic_c10]:http://chart.apis.google.com/chart?cht=tx&chl=P'_i(x)=P'_{i%2B1}(x),\\,\right\\,\mu=\frac{h_i}{h_i%2Bh_{i+1}}\\\\\lambda_i=\frac{h_{i%2B1}}{h_i%2Bh_{i+1}}
-[cubic_c11]:http://chart.apis.google.com/chart?cht=tx&chl=\frac{6}{h_i%2Bh_{i+1}}(\frac{y_{i+1}-y_i}{h_{i%2B1}}-\frac{y_i-y_{i-1}}{h_i})
-
+[cubic_c10]:http://chart.apis.google.com/chart?cht=tx&chl=P'_i(x)=P'_{i%2B1}(x),\\,\right\\,\mu_i=\frac{h_i}{h_i%2Bh_{i+1}}\\\\\lambda_i=\frac{h_{i%2B1}}{h_i%2Bh_{i+1}}
+[cubic_c11]:http://chart.apis.google.com/chart?cht=tx&chl=\frac{6}{h_i%2Bh_{i+1}}(\frac{y_{i+1}-y_i}{h_{i%2B1}}-\frac{y_i-y_{i-1}}{h_i})=d_i
+[cubic_c12]:http://chart.apis.google.com/chart?cht=tx&chl=S''(x_0)=S''(x_n)=0,\\\\\lambda_0=0,\\,d_0=0,\\\\\mu_n=0,d_n=0.
 
 ## MLES
 
