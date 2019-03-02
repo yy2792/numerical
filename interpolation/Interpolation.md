@@ -146,6 +146,32 @@ Minimum Curvature Property <br>
 [cubic_c11]:http://chart.apis.google.com/chart?cht=tx&chl=\frac{6}{h_i%2Bh_{i+1}}(\frac{y_{i+1}-y_i}{h_{i%2B1}}-\frac{y_i-y_{i-1}}{h_i})=d_i
 [cubic_c12]:http://chart.apis.google.com/chart?cht=tx&chl=S''(x_0)=S''(x_n)=0,\\\\\lambda_0=0,\\,d_0=0,\\\\\mu_n=0,d_n=0.
 
+- Why non-singular?
+
+    - proof 1:<br>
+      [reference STBU](#Cubic_Spline)
+    
+    - proof 2:
+        - For ![inv_1]<br>
+        ![inv_2]<br>
+        we have:<br>
+        ![cubic](images/cubic.jpg)
+        ![inv_3]<br>
+        ![inv_4]
+        - let C=A-2I, <br>
+        C = ![cubic](images/cubic2.jpg)
+        ![inv_5]
+        - propostion: ![inv_6]
+        
+        
+
+[inv_1]:http://chart.apis.google.com/chart?cht=tx&chl=P_{N*N}=(P_{ij})
+[inv_2]:http://chart.apis.google.com/chart?cht=tx&chl=\\,\varphi(P)=\underset{i}{max}(\sum_{k=1}^{n}|P_{ik}|)\\,
+[inv_3]:http://chart.apis.google.com/chart?cht=tx&chl=\mu_n=1\\,or\\,0\\,,\lambda_0=1\\,or\\,0\\\\\lambda_i,\mu_i>0,\\,\lambda_i%2B\mu_i=1,\\,j=1,\dots,n-1
+[inv_4]:http://chart.apis.google.com/chart?cht=tx&chl=\lambda_j=\frac{h_{j%2B1}}{h_j%2Bh_{j%2B1}},\\,\mu_j=1-\lambda_j
+[inv_5]:http://chart.apis.google.com/chart?cht=tx&chl=\varphi(C)=1
+[inv_6]:http://chart.apis.google.com/chart?cht=tx&chl=\varphi(PQ){\geq}\varphi(P)\varphi(Q)
+
 ## MLES
 
 > [Reference More Yield Curve Modelling at the Bank of Canada page 41- 48](#Cubic_Spline)
