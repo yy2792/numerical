@@ -120,5 +120,11 @@ class testCubic_itp(unittest.TestCase):
     def test_cubic_fit(self):
         self.ci.cubic_fit()
 
+        self.y = [21.14, 18.64, 17.14, 15.64, 14.28, 15.04, 15.74, 17.14, 16.44]
+
+        self.ci = Cubic_itp(self.x, self.y)
+
+        self.ci.cubic_fit()
+
 
 
