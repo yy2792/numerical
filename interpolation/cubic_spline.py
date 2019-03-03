@@ -17,6 +17,44 @@ def inverse_triang(mx):
     '''
 
 
+def upper_triangle(mx):
+
+    #if it cannot be reduced to an upper triangle, return -1
+
+    def helper(mx, line_num):
+
+        n = len(mx)
+
+        if len(mx[0]) != 2 * n:
+            raise MyError('The col number should be twice of row number')
+            return -1
+
+        if n == 1:
+            t = mx[0][0]
+            for i in range(2):
+                mx[0][i] /= t
+
+            return mx
+
+        # we do not expect a non-zero number in diagonal
+        if mx[line_num][line_num] == 0:
+            return -1
+
+        t = mx[line_num][line_num]
+
+        # base case, line_num == n - 1, everything before should be 0
+        for i in range(line_num):
+            if mx[line_num][i] != 0:
+                return -1
+
+        if t != 1:
+            for i in range(line_num, 2*n):
+                mx[line_num][i] /= t
+
+        return mx
+
+
+    return helper(mx, 2)
 
     pass
 
@@ -125,6 +163,25 @@ class testCubic_itp(unittest.TestCase):
         self.ci = Cubic_itp(self.x, self.y)
 
         self.ci.cubic_fit()
+
+
+class test_inverse_triang(unittest.TestCase):
+
+    def setUp(self):
+        self.mx = [[1, 3, 0, 0], [2, 2, 3, 0], [0, 1, 2, 3], [0, 0, 2, 1]]
+
+    def test_upper_triangle(self):
+
+        mx1 = [[2, 3]]
+        res = upper_triangle(mx1)
+
+        self.assertEqual(res, [[1, 1.5]])
+
+        mx2 = [[0, 0, 3, 3, 6, 9], [0, 2, 2, 2, 2, 2], [0, 0, 3, 3, 6, 9]]
+
+        res = upper_triangle(mx2)
+
+        print(res)
 
 
 
