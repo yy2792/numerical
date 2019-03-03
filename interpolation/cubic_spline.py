@@ -50,8 +50,15 @@ def upper_triangle(mx, flag=1):
                 return -1
 
         if t != 1:
+            # if pivot is not 1
             for i in range(line_num, len(mx[0])):
                 mx[line_num][i] /= t
+
+        # now deduce each row with multiple of first row
+        for i in range(line_num + 1, n):
+            first_item = mx[i][line_num]
+            for j in range(line_num, len(mx[0])):
+                mx[i][j] -= first_item * mx[line_num][j]
 
         if line_num == n - 1:
             return mx
