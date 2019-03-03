@@ -187,8 +187,10 @@ class test_inverse_triang(unittest.TestCase):
         self.assertEqual(res, [[1, 1.5]])
 
         mx2 = [[3, 2, 1], [2, 1, 1], [0, 2, 3]]
+        t_res = [[1, 2/3, 1/3], [0, 1, -1], [0, 0, 1]]
 
         res = upper_triangle(mx2, 0)
+        np.testing.assert_almost_equal(res, t_res, 5)
 
 
 
