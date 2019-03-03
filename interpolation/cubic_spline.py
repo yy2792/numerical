@@ -192,7 +192,12 @@ class test_inverse_triang(unittest.TestCase):
         res = upper_triangle(mx2, 0)
         np.testing.assert_almost_equal(res, t_res, 5)
 
+        mx2_new = [[3, 2, 1, 1, 0, 0], [2, 1, 1, 0, 1, 0], [0, 2, 3, 0, 0, 1]]
+        res2 = upper_triangle(mx2_new)
 
+        t_res2 = [[1, 2/3, 1/3, 1/3, 0, 0], [0, 1, -1, 2, -3, 0], [0, 0, 1, -0.8, 1.2, 0.2]]
+
+        np.testing.assert_almost_equal(res2, t_res2, 5)
 
 
 
