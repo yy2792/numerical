@@ -67,8 +67,6 @@ def upper_triangle(mx, flag=1):
 
     return helper(mx, 0)
 
-    pass
-
 
 class Cubic_itp():
 
