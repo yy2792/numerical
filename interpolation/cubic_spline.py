@@ -190,7 +190,7 @@ class test_inverse_triang(unittest.TestCase):
 
         res = upper_triangle(mx2, 0)
 
-        print(res)
+
 
 
 
