@@ -17,7 +17,7 @@ def inverse_triang(mx):
     '''
 
 
-def upper_triangle(mx):
+def upper_triangle(mx, flag=1):
 
     #if it cannot be reduced to an upper triangle, return -1
 
@@ -25,9 +25,11 @@ def upper_triangle(mx):
 
         n = len(mx)
 
-        if len(mx[0]) != 2 * n:
-            raise MyError('The col number should be twice of row number')
-            return -1
+        if flag == 1:
+            # enable row number check (we have to assume matrix is n * 2n here
+            if len(mx[0]) != 2 * n:
+                raise MyError('The col number should be twice of row number')
+                return -1
 
         if n == 1:
             t = mx[0][0]
@@ -48,13 +50,15 @@ def upper_triangle(mx):
                 return -1
 
         if t != 1:
-            for i in range(line_num, 2*n):
+            for i in range(line_num, len(mx[0])):
                 mx[line_num][i] /= t
 
-        return mx
+        if line_num == n - 1:
+            return mx
 
+        return helper(mx, line_num + 1)
 
-    return helper(mx, 2)
+    return helper(mx, 0)
 
     pass
 
@@ -177,9 +181,9 @@ class test_inverse_triang(unittest.TestCase):
 
         self.assertEqual(res, [[1, 1.5]])
 
-        mx2 = [[0, 0, 3, 3, 6, 9], [0, 2, 2, 2, 2, 2], [0, 0, 3, 3, 6, 9]]
+        mx2 = [[3, 2, 1], [2, 1, 1], [0, 2, 3]]
 
-        res = upper_triangle(mx2)
+        res = upper_triangle(mx2, 0)
 
         print(res)
 
