@@ -17,6 +17,8 @@ def inverse_triang(mx):
     '''
 
 
+
+
 def upper_triangle(mx, flag=1):
 
     #if it cannot be reduced to an upper triangle, return -1
@@ -66,6 +68,57 @@ def upper_triangle(mx, flag=1):
         return helper(mx, line_num + 1)
 
     return helper(mx, 0)
+
+
+def lower_triangle(mx, flag=1):
+
+    #if it cannot be reduced to an upper triangle, return -1
+
+    def helper(mx, line_num):
+
+        n = len(mx)
+
+        if flag == 1:
+            # enable row number check (we have to assume matrix is n * 2n here
+            if len(mx[0]) != 2 * n:
+                raise MyError('The col number should be twice of row number')
+                return -1
+
+        if n == 1:
+            t = mx[0][0]
+            for i in range(2):
+                mx[0][i] /= t
+
+            return mx
+
+        # we do expect a non-zero number in diagonal
+        if mx[line_num][line_num] == 0:
+            return -1
+
+        t = mx[line_num][line_num]
+
+        # base case, line_num == n - 1, everything after should be 0
+        for i in range(line_num + 1, n):
+            if mx[line_num][i] != 0:
+                return -1
+
+        if t != 1:
+            # if pivot is not 1
+            for i in range(len(mx[0])):
+                mx[line_num][i] /= t
+
+        # now deduce each row with multiple of first row
+        for i in range(line_num):
+            first_item = mx[i][line_num]
+            for j in range(len(mx[0])):
+                mx[i][j] -= first_item * mx[line_num][j]
+
+        if line_num == 0:
+            return mx
+
+        return helper(mx, line_num - 1)
+
+    return helper(mx, len(mx) - 1)
 
 
 class Cubic_itp():
@@ -199,5 +252,24 @@ class test_inverse_triang(unittest.TestCase):
 
         np.testing.assert_almost_equal(res2, t_res2, 5)
 
+    def test_lower_triangle(self):
+
+        mx1 = [[2, 3]]
+        res = lower_triangle(mx1)
+
+        self.assertEqual(res, [[1, 1.5]])
+
+        mx2 = [[3, 2, 1], [2, 1, 1], [0, 2, 3]]
+        t_res = [[1, 0, 0], [5.999999, 1, 0], [0, 2/3, 1]]
+
+        res = lower_triangle(mx2, 0)
+        np.testing.assert_almost_equal(res, t_res, 5)
+
+        mx2_new = [[3, 2, 1, 1, 0, 0], [2, 1, 1, 0, 1, 0], [0, 2, 3, 0, 0, 1]]
+        res2 = lower_triangle(mx2_new)
+
+        t_res2 = [[1, 0, 0, -0.2, 0.8, -0.2], [6, 1, 0, 0, 3, -1], [0, 2/3, 1, 0, 0, 1/3]]
+
+        np.testing.assert_almost_equal(res2, t_res2, 5)
 
 
