@@ -2,7 +2,7 @@ import unittest
 import numpy as np
 
 
-def inverse_triang(mx):
+def inverse_matrix(mx):
 
     '''
     :param mx: 2D array (triangular matrix)
@@ -16,7 +16,19 @@ def inverse_triang(mx):
      [0, 0, 2, 1]]
     '''
 
+    if len(mx) != len(mx[0]):
+        raise MyError('matrix is not square matrix')
 
+    id_mx = np.identity(len(mx))
+
+    new_mx = np.concatenate((np.array(mx), id_mx), axis=1)
+
+    up_mx = upper_triangle(new_mx)
+    low_mx = lower_triangle(up_mx)
+
+    inv_mx = low_mx[:, len(low_mx):]
+
+    return inv_mx
 
 
 def upper_triangle(mx, flag=1):
@@ -271,5 +283,14 @@ class test_inverse_triang(unittest.TestCase):
         t_res2 = [[1, 0, 0, -0.2, 0.8, -0.2], [6, 1, 0, 0, 3, -1], [0, 2/3, 1, 0, 0, 1/3]]
 
         np.testing.assert_almost_equal(res2, t_res2, 5)
+
+    def test_inverse_matrix(self):
+
+        mx = np.array([[3, 2, 1], [2, 1, 1], [0, 2, 3]])
+
+        inv_mx = inverse_matrix(mx)
+
+        np.testing.assert_almost_equal(np.dot(mx, inv_mx), np.identity(len(mx)))
+
 
 
