@@ -292,5 +292,9 @@ class test_inverse_triang(unittest.TestCase):
 
         np.testing.assert_almost_equal(np.dot(mx, inv_mx), np.identity(len(mx)))
 
+        mx2 = np.array([[1, 5, 6], [2, 3, 3], [1, 10, 3]])
 
+        inv_mx2 = inverse_matrix(mx2)
+
+        np.testing.assert_almost_equal(np.dot(mx2, inv_mx2), np.identity(len(mx2)))
 
