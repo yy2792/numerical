@@ -347,8 +347,6 @@ class testCubic_itp(unittest.TestCase):
         self.assertEqual(round(self.ci.interpolate(45), 4), 13.6580)
 
 
-
-
 class test_inverse_triang(unittest.TestCase):
 
     def setUp(self):
