@@ -18,6 +18,9 @@ class Linear_itp():
         if target == self.x[0]:
             return self.y[0]
 
+        if target < self.x[0] or target > self.x[-1]:
+            raise MyError('Given target out of reach for linear interpolation')
+
         i = bisect_left(self.x, target) - 1
         if i < 0 or i >= len(self.x):
             raise MyError('Index Error: The interpolated value must be between {} and {}'
