@@ -1,9 +1,12 @@
 import unittest
+from interpolation.Interpolater import Interpolater
 
 
-class Poly_itp():
+class Poly_itp(Interpolater):
 
     def __init__(self, x_, y_):
+        super().__init__(x_, y_)
+
         temp = sorted(zip(x_, y_), key=lambda x: x[0])
         self.x = [float(i[0]) for i in temp]
         self.y = [float(i[1]) for i in temp]

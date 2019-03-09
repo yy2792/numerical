@@ -1,10 +1,14 @@
 import unittest
 from bisect import bisect_left
+from interpolation.Interpolater import Interpolater
 
 
-class Linear_itp():
+class Linear_itp(Interpolater):
 
     def __init__(self, x_, y_):
+
+        super().__init__(x_, y_)
+
         temp = sorted(zip(x_, y_), key=lambda x: x[0])
         self.x = [float(i[0]) for i in temp]
         self.y = [float(i[1]) for i in temp]
@@ -75,14 +79,14 @@ class testLinear_itp(unittest.TestCase):
         try:
             self.li.interpolate(case1)
         except MyError as er:
-            self.assertEqual(er.message[:11], "Index Error")
+            self.assertEqual(er.message[:11], "Given targe")
 
         case2 = 90
 
         try:
             self.li.interpolate(case1)
         except MyError as er:
-            self.assertEqual(er.message[:11], "Index Error")
+            self.assertEqual(er.message[:11], "Given targe")
 
         case5 = 0
 
