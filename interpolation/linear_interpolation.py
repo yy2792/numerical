@@ -2,10 +2,6 @@ import unittest
 from bisect import bisect_left
 
 
-def inverse_matrix(mx):
-
-
-
 class Linear_itp():
 
     def __init__(self, x_, y_):

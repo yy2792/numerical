@@ -1,5 +1,20 @@
 import unittest
 import numpy as np
+from bisect import bisect_left
+
+
+def reverse_bisect_left(a, x, lo=0, hi=None):
+    if lo < 0:
+        raise ValueError('lo must be non-negative')
+    if hi is None:
+        hi = len(a)
+    while lo < hi:
+        mid = (lo + hi) // 2
+        if x > a[mid]:
+            hi = mid
+        else:
+            lo = mid + 1
+    return lo - 1
 
 
 def inverse_matrix(mx):
@@ -135,16 +150,27 @@ def lower_triangle(mx, flag=1):
 
 class Cubic_itp():
 
-    def __init__(self, x_, y_, condition='n', head=0, tail=0):
+    def __init__(self, x_, y_, condition='n', head=0, tail=0, order='DESC'):
 
-        # condition is n (natural), s (slope), sfs, sff, ...
+        # condition is n (natural), ff (slope), ss (second), sf, fs, ...
+        if condition not in ['n', 'ff', 'ss', 'fs', 'sf']:
+            raise MyError('Invalid 2 degrees of freedom')
 
-        temp = sorted(zip(x_, y_), key=lambda x: -x[0])
+        self.order = order
+
+        if order == 'DESC':
+            temp = sorted(zip(x_, y_), key=lambda x: -x[0])
+        elif order == 'ASC':
+            temp = sorted(zip(x_, y_), key=lambda x: x[0])
+        else:
+            raise MyError('order should be asc or desc')
+
         self.x = [float(i[0]) for i in temp]
         self.y = [float(i[1]) for i in temp]
         self.condition = condition
         self.head = 0
         self.tail = 0
+        self.para = None
 
     def cubic_fit(self):
 
@@ -207,10 +233,51 @@ class Cubic_itp():
         d = np.array(d)
         m = np.linalg.solve(temp_matrix, d)
 
-        print(m)
+        # a_i ()^3 + b_i ()^2 + c_i () + d_i
+        # calculate ai
+        ai_interval = zip(m, m[1:], h[1:])
+        ai = [(m2 - m1)/(6 * h) for m1, m2, h in ai_interval]
+
+        # calculate bi
+        bi = [m_i / 2 for m_i in m[:-1]]
+
+        # calculate ci
+        ci_interval = zip(self.y[1:], self.y, m[1:], m, h[1:])
+        ci = [(y2 - y1) / h2 - ((m2 + 2 * m1) / 6) * h2 for y2, y1, m2, m1, h2 in ci_interval]
+
+        # calculate di
+        di = [yi for yi in self.y[:-1]]
+
+        self.para = list(zip(ai, bi, ci, di))
 
         # end
 
+    def interpolate(self, target):
+
+        if self.para is None:
+            self.cubic_fit()
+            if self.para is None:
+                raise MyError('cannot fit and get paras for given input')
+
+        if target == self.x[0]:
+            return self.y[0]
+
+        if target == self.x[-1]:
+            return self.y[-1]
+
+        if self.order == 'ASC':
+            i = bisect_left(self.x, target) - 1
+        else:
+            i = reverse_bisect_left(self.x, target)
+
+        if i < 0 or i >= len(self.x):
+            raise MyError('Index Error: The interpolated value must be between {} and {}'
+                          .format(self.x[0], self.x[-1]))
+
+        ai, bi, ci, di = self.para[i]
+        temp_x = self.x[i]
+
+        return ai * pow((target - temp_x), 3) + bi * pow((target - temp_x), 2) + ci * (target - temp_x) + di
 
 
 class MyError(Exception):
@@ -227,16 +294,39 @@ class testCubic_itp(unittest.TestCase):
         self.x = [86.03543, 81.03543, 76.03543, 61.03543, 50, 25, 10, 0, 5]
         self.y = [20.14, 18.64, 17.14, 15.64, 14.28, 15.04, 15.74, 17.14, 16.44]
 
-        self.ci = Cubic_itp(self.x, self.y)
+        self.ci = Cubic_itp(self.x, self.y, order='DESC')
 
     def test_cubic_fit(self):
         self.ci.cubic_fit()
 
-        self.y = [21.14, 18.64, 17.14, 15.64, 14.28, 15.04, 15.74, 17.14, 16.44]
+        res = round(self.ci.interpolate(45), 4)
+        self.assertEqual(res, 14.0425)
 
-        self.ci = Cubic_itp(self.x, self.y)
+        x = reversed(self.x)
+        y = reversed(self.y)
 
+        self.ci = Cubic_itp(x, y)
         self.ci.cubic_fit()
+
+        res2 = round(self.ci.interpolate(45), 4)
+        self.assertEqual(res, res2)
+
+    def test_cubic_fit_natural(self):
+        self.ci = Cubic_itp(self.x, self.y, order='DESC')
+        self.ci.cubic_fit()
+
+        self.assertEqual(round(self.ci.interpolate(40), 4), 14.1289)
+
+        for i in range(len(self.x)):
+            self.assertEqual(round(self.ci.interpolate(self.x[i]), 4), round(self.y[i], 4))
+
+        self.ci = Cubic_itp(self.x, self.y, order='ASC')
+        self.ci.cubic_fit()
+
+        self.assertEqual(round(self.ci.interpolate(40), 4), 14.1289)
+
+        for i in range(len(self.x)):
+            self.assertEqual(round(self.ci.interpolate(self.x[i]), 4), round(self.y[i], 4))
 
 
 class test_inverse_triang(unittest.TestCase):
@@ -298,3 +388,21 @@ class test_inverse_triang(unittest.TestCase):
 
         np.testing.assert_almost_equal(np.dot(mx2, inv_mx2), np.identity(len(mx2)))
 
+
+class test_reverse_bisect_left(unittest.TestCase):
+
+    def setUp(self):
+        self.rev_sample = [86, 81, 76, 61, 50, 25, 10, 5, 0]
+
+    def test_func(self):
+
+        self.assertEqual(self.rev_sample[reverse_bisect_left(self.rev_sample, 60)], 61)
+        self.assertEqual(self.rev_sample[reverse_bisect_left(self.rev_sample, 61)], 61)
+        self.assertEqual(self.rev_sample[reverse_bisect_left(self.rev_sample, 0)], 0)
+        self.assertEqual(self.rev_sample[reverse_bisect_left(self.rev_sample, 80)], 81)
+        self.assertEqual(self.rev_sample[reverse_bisect_left(self.rev_sample, 86)], 86)
+
+
+if __name__ == '__main__':
+
+    unittest.main()
