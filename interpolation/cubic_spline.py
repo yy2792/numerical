@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
 from bisect import bisect_left
-from interpolation.Interpolater import Interpolater
+from interpolation.Interpolater import Interpolator
 
 
 def reverse_bisect_left(a, x, lo=0, hi=None):
@@ -149,11 +149,13 @@ def lower_triangle(mx, flag=1):
     return helper(mx, len(mx) - 1)
 
 
-class Cubic_itp(Interpolater):
+class Cubic_itp(Interpolator):
 
     def __init__(self, x_, y_, condition='n', head=0, tail=0, order='ASC'):
 
         super().__init__(x_, y_)
+
+        self._name = 'cubic'
 
         # condition is n (natural), ff (slope), ss (second), sf, fs, ...
         if condition not in ['n', 'ff', 'ss', 'fs', 'sf']:

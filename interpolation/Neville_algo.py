@@ -1,11 +1,13 @@
 import unittest
-from interpolation.Interpolater import Interpolater
+from interpolation.Interpolater import Interpolator
 
 
-class Poly_itp(Interpolater):
+class Poly_itp(Interpolator):
 
     def __init__(self, x_, y_):
         super().__init__(x_, y_)
+
+        self._name = 'poly'
 
         temp = sorted(zip(x_, y_), key=lambda x: x[0])
         self.x = [float(i[0]) for i in temp]
