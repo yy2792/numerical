@@ -150,7 +150,7 @@ def lower_triangle(mx, flag=1):
 
 class Cubic_itp():
 
-    def __init__(self, x_, y_, condition='n', head=0, tail=0, order='DESC'):
+    def __init__(self, x_, y_, condition='n', head=0, tail=0, order='ASC'):
 
         # condition is n (natural), ff (slope), ss (second), sf, fs, ...
         if condition not in ['n', 'ff', 'ss', 'fs', 'sf']:
@@ -168,8 +168,8 @@ class Cubic_itp():
         self.x = [float(i[0]) for i in temp]
         self.y = [float(i[1]) for i in temp]
         self.condition = condition
-        self.head = 0
-        self.tail = 0
+        self.head = head
+        self.tail = tail
         self.para = None
 
     def cubic_fit(self):
@@ -197,7 +197,7 @@ class Cubic_itp():
         else:
             if self.condition[0] == 'f':
                 phi = [1] + phi
-                d0 = (6 / h[1]) * ((y[1] - y[0]) / h[1] - self.head)
+                d0 = (6 / h[1]) * ((self.y[1] - self.y[0]) / h[1] - self.head)
                 d = [d0] + d
 
             elif self.condition[0] == 's':
@@ -293,6 +293,7 @@ class testCubic_itp(unittest.TestCase):
     def setUp(self):
         self.x = [86.03543, 81.03543, 76.03543, 61.03543, 50, 25, 10, 0, 5]
         self.y = [20.14, 18.64, 17.14, 15.64, 14.28, 15.04, 15.74, 17.14, 16.44]
+        #self.y = [y / 100 for y in self.y]
 
         self.ci = Cubic_itp(self.x, self.y, order='DESC')
 
@@ -327,6 +328,17 @@ class testCubic_itp(unittest.TestCase):
 
         for i in range(len(self.x)):
             self.assertEqual(round(self.ci.interpolate(self.x[i]), 4), round(self.y[i], 4))
+
+    def test_cubic_fit_other(self):
+        self.ci = Cubic_itp(self.x, self.y, condition='ss', head=5, tail=5, order='ASC')
+        self.ci.cubic_fit()
+        self.assertEqual(round(self.ci.interpolate(45), 4), 14.1638)
+
+        self.ci = Cubic_itp(self.x, self.y, condition='ff', head=5, tail=5, order='ASC')
+        self.ci.cubic_fit()
+        self.assertEqual(round(self.ci.interpolate(45), 4), 13.6580)
+
+
 
 
 class test_inverse_triang(unittest.TestCase):
