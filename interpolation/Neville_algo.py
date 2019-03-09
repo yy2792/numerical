@@ -13,7 +13,7 @@ class Poly_itp(Interpolator):
         self.x = [float(i[0]) for i in temp]
         self.y = [float(i[1]) for i in temp]
 
-    def interpolate_func(self, target, x, y):
+    def interpolate_func(self, target, x, y, pt=False):
 
         nv_matrix = [[None for i in range(len(x) + 1)] for j in range(len(x))]
 
@@ -39,14 +39,15 @@ class Poly_itp(Interpolator):
 
         helper(0, len(x))
 
-        print('result for target {} is: '.format(target))
-        self.print_matrix(nv_matrix)
+        if pt:
+            print('result for target {} is: '.format(target))
+            self.print_matrix(nv_matrix)
 
         return nv_matrix[0][-1]
 
-    def interpolate(self, target):
+    def interpolate(self, target, pt=False):
 
-        return self.interpolate_func(target, self.x[:], self.y[:])
+        return self.interpolate_func(target, self.x[:], self.y[:], pt)
 
     def interpolate_rev(self, target):
 

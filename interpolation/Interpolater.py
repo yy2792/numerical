@@ -24,6 +24,7 @@ class Interpolator(object):
 
         plt.plot(axis_x, axis_y, color='green', linewidth = 2)
 
+        plt.xlim(axis_x[0], axis_x[-1])
         plt.title('{} interpolation'.format(self._name))
 
         plt.show()

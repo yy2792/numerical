@@ -264,6 +264,9 @@ class Cubic_itp(Interpolator):
             if self.para is None:
                 raise MyError('cannot fit and get paras for given input')
 
+        if target < min(self.x) or target > max(self.x):
+            raise MyError('target value is out of reach')
+
         if target == self.x[0]:
             return self.y[0]
 
