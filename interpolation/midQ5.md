@@ -53,9 +53,9 @@ for j = 0, 1, ..., n - 2 :+1: (2pt)
 [l6]: http://chart.apis.google.com/chart?cht=tx&chl=S_j(x_j)=y_j\rightarrow\\,\alpha_j=y_j
 [l7]: http://chart.apis.google.com/chart?cht=tx&chl=S'_j(x_j)=M_j\rightarrow\\,\beta_j=M_j
 [l8]: http://chart.apis.google.com/chart?cht=tx&chl=S'_j(x_{j%2B1})=M_{j%2B1}\\,\rightarrow\\,\beta_j%2B2r_j(x_{j%2B1}-X_j)=M_{j%2B1}
-[l9]: http://chart.apis.google.com/chart?cht=tx&chl=r_j=\frac{M_{j%2B1}-M_j}{2(X_{j%2B1}-X_j)}
+[l9]: http://chart.apis.google.com/chart?cht=tx&chl=r_j=\frac{M_{j%2B1}-M_j}{2(x_{j%2B1}-x_j)}
 [l10]: http://chart.apis.google.com/chart?cht=tx&chl=\textit{\\,S'_j(x_{j%2B1})=S'_{j%2B1}(x_{j%2B1})}
-[l11]: http://chart.apis.google.com/chart?cht=tx&chl=r_{n-1}=\frac{M_{n}-M_{n-1}}{2(X_{n}-X_{n-1})}
+[l11]: http://chart.apis.google.com/chart?cht=tx&chl=r_{n-1}=\frac{M_{n}-M_{n-1}}{2(X_{n}-x_{n-1})}
 
 
 
