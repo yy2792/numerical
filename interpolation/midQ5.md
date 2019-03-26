@@ -90,3 +90,20 @@ argue fill in one constraint gets partial :+1: (5pt) flexible + 2pts
 [l17]: http://chart.apis.google.com/chart?cht=tx&chl=M_0=y'_0
 [l18]: http://chart.apis.google.com/chart?cht=tx&chl=A\vec{M}=\vec{d}
 [l19]: http://chart.apis.google.com/chart?cht=tx&chl=det(A)>0
+
+
+## Q5_iv
+
+No, if the given y'0 is not a (the slope of the linear function ax+b), the result is not 
+going to be a straight line. :+1: (7 pt) 
+
+reasonable proof or example :+1: (3 pt)
+
+(ex. ![l20] for i = 1, 2, ..., n but ![l21])
+
+[l20]: http://chart.apis.google.com/chart?cht=tx&chl=d_i=2a
+[l21]: http://chart.apis.google.com/chart?cht=tx&chl=d_0\neq2a
+
+Correct proof for S being straight line given y'0 = a gets :+1: (3 pt)
+
+Directly claiming Mj are identical gets no points. (Mj = S'(xj))
