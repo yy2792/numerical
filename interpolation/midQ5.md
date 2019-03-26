@@ -10,15 +10,25 @@ Mid Q5
 
 ## Q5_i
 
-- Yes (1pt)
+- Yes :+1: (1pt)
 
 ![l1]
 
 ![l2]
 
-- ![l3]  :+1: (1pt)
+- 3n equations 
+
+- ![l3]  
+  ![l4] 
+  
+  2n equations :+1: (2pt)
+- ![l5]
+
+  n - 1 equations :+1: (2pt)
 
 [l1]: http://chart.apis.google.com/chart?cht=tx&chl=(x_0,\\,y_0),\dots,(x_n,\\,y_n),\\,x_0<x_1<\dots<x_n
 [l2]: http://chart.apis.google.com/chart?cht=tx&chl=S_j(x)=\alpha_j%2B\beta_j(x-x_j)%2Br_j(x-x_j)^2
-[l3]: http://chart.apis.google.com/chart?cht=tx&chl=S_j(x_{j%2B1})=S_{j%2B1}(x_{j%2B1})=y_{j+%2B1}
+[l3]: http://chart.apis.google.com/chart?cht=tx&chl=S_j(x_{j%2B1})=S_{j%2B1}(x_{j%2B1})=y_{j+%2B1},\\,j=0,\dots,n-2
+[l4]: http://chart.apis.google.com/chart?cht=tx&chl=S_0(x_0)=y_0,\\,S_{n-1}(x_n)=y_n
+[l5]: http://chart.apis.google.com/chart?cht=tx&chl=S'_j(x_{j%2B1})=S'_{j%2B1}(x_{j%2B1}),\\,j=0,1,\dots,n-2
 
