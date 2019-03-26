@@ -106,4 +106,4 @@ reasonable proof or example :+1: (3 pt)
 
 Correct proof for S being straight line given y'0 = a gets :+1: (3 pt)
 
-Directly claiming Mj are identical gets no points. (Mj = S'(xj))
+Directly claiming Mj are identical gets no points. (since Mj = S'(xj))
