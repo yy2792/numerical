@@ -80,6 +80,7 @@ with  ![l17]
 ***
 
 argue by induction gets full credits :+1: (11pt)
+
 argue fill in one constraint gets partial :+1: (5pt) flexible + 2pts
 
 [l12]: http://chart.apis.google.com/chart?cht=tx&chl=S_j(x)=\alpha_j%2B\beta_j(x-x_j)%2Br_j(x-x_j)^2
@@ -106,4 +107,4 @@ reasonable proof or example :+1: (3 pt)
 
 Correct proof for S being straight line given y'0 = a gets :+1: (3 pt)
 
-Directly claiming Mj are identical gets no points. (since Mj = S'(xj))
+Directly claiming Mj are identical gets no points. :worried: (since Mj = S'(xj))
