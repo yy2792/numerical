@@ -57,6 +57,36 @@ for j = 0, 1, ..., n - 2 :+1: (2pt)
 [l10]: http://chart.apis.google.com/chart?cht=tx&chl=\textit{\\,S'_j(x_{j%2B1})=S'_{j%2B1}(x_{j%2B1})}
 [l11]: http://chart.apis.google.com/chart?cht=tx&chl=r_{n-1}=\frac{M_{n}-M_{n-1}}{2(X_{n}-x_{n-1})}
 
+## Q5_iii
 
+![l12]
+![l13]
 
+![l14]
 
+![l15]
+
+![l16]
+for j = 0, ..., n - 1
+
+with  ![l17]
+
+![cubic](images/image1.png)
+
+![l18]
+
+![l19] :+1: (11pt)
+
+***
+
+argue by induction gets full credits :+1: (11pt)
+argue fill in one constraint gets partial :+1: (5pt) flexible + 2pts
+
+[l12]: http://chart.apis.google.com/chart?cht=tx&chl=S_j(x)=\alpha_j%2B\beta_j(x-x_j)%2Br_j(x-x_j)^2
+[l13]: http://chart.apis.google.com/chart?cht=tx&chl=x\in[x_j,\\,x_{j%2B1}]\\,n=0,1,\dots,n-1
+[l14]: http://chart.apis.google.com/chart?cht=tx&chl=S_j(x)=\alpha_j%2BM_j(x-x_j)%2B\frac{M_{j%2B1}-M_j}{2(x_{j%2B1}-x_j)}(x-x_j)^2
+[l15]: http://chart.apis.google.com/chart?cht=tx&chl=y_{j%2B1}=y_j%2BM_j(x-x_j)%2B\frac{M_{j%2B1}-M_j}{2}(x_{j+1}-x_j)
+[l16]: http://chart.apis.google.com/chart?cht=tx&chl=\frac{2(y_{j+1}-y_j)}{x_{j+1}-x_j}=M_j%2BM_{j%2B1}
+[l17]: http://chart.apis.google.com/chart?cht=tx&chl=M_0=y'_0
+[l18]: http://chart.apis.google.com/chart?cht=tx&chl=A\vec{M}=\vec{d}
+[l19]: http://chart.apis.google.com/chart?cht=tx&chl=det(A)>0
