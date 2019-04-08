@@ -346,6 +346,14 @@ class testCubic_itp(unittest.TestCase):
         self.ci.cubic_fit()
         self.assertEqual(round(self.ci.interpolate(45), 4), 13.6580)
 
+        self.ci = Cubic_itp(self.x, self.y, condition='ss', head=5, tail=5, order='DESC')
+        self.ci.cubic_fit()
+        self.assertEqual(round(self.ci.interpolate(45), 4), 14.1638)
+
+        self.ci = Cubic_itp(self.x, self.y, condition='ff', head=5, tail=5, order='DESC')
+        self.ci.cubic_fit()
+        self.assertEqual(round(self.ci.interpolate(45), 4), 13.6580)
+
 
 class test_inverse_triang(unittest.TestCase):
 
