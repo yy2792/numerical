@@ -107,6 +107,9 @@ class TestBS(unittest.TestCase):
         res = newton(0.2, 10, self.price_json)
         self.assertEqual(0.4410, round(res, 4))
 
+        res = newton(0.2, 8, self.price_json)
+        self.assertEqual(0.3568, round(res, 4))
+
     def test_secant(self):
         res = secant(0.19, 0.2, 1, self.price_json)
         self.assertEqual(0.0614, round(res, 4))
@@ -117,6 +120,9 @@ class TestBS(unittest.TestCase):
         res = secant(0.19, 0.2, 10, self.price_json)
         self.assertEqual(0.4410, round(res, 4))
 
+        res = secant(0.19, 0.2, 8, self.price_json)
+        self.assertEqual(0.3568, round(res, 4))
+
     def test_regula(self):
         res = regula(0.19, 0.2, 1, self.price_json)
         self.assertEqual(0.0614, round(res, 4))
@@ -126,3 +132,6 @@ class TestBS(unittest.TestCase):
 
         res = regula(0.19, 0.2, 10, self.price_json)
         self.assertEqual(0.4410, round(res, 4))
+
+        res = regula(0.19, 0.2, 8, self.price_json)
+        self.assertEqual(0.3568, round(res, 4))

@@ -134,11 +134,20 @@ class TestBS2(unittest.TestCase):
         res = newton(0.2, 1.7, self.price_json)
         self.assertIsNone(res)
 
+        res = newton(0.2, 1.6, self.price_json)
+        self.assertEqual(0.9293, round(res, 4))
+
     def test_secant(self):
         res = secant(0.19, 0.2, 1.7, self.price_json)
         self.assertEqual(0.6394, round(res, 4))
 
+        res = secant(0.19, 0.2, 1.6, self.price_json)
+        self.assertEqual(0.9293, round(res, 4))
+
     def test_regula(self):
         res = regula(0.01, 0.3, 1.7, self.price_json)
         self.assertEqual(0.1066, round(res, 4))
+
+        res = regula(0.01, 0.3, 1.6, self.price_json)
+        self.assertEqual(0.0720, round(res, 4))
 
