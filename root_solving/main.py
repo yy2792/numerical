@@ -26,6 +26,11 @@ def secant(guess1, guess2, target, para_json, cp='c', max_loop=1000, thred=10**(
         para_json['vol'] = guess2
         guess_res2 = BS_Price(para_json, cp=cp) - target
 
+        if abs(guess_res1) < thred:
+            return guess1
+        if abs(guess_res2) < thred:
+            return guess2
+
         new_guess = (guess_res2 * guess1 - guess_res1 * guess2) / (guess_res2 - guess_res1)
         para_json['vol'] = new_guess
         new_guess_res = BS_Price(para_json, cp=cp) - target
@@ -34,8 +39,8 @@ def secant(guess1, guess2, target, para_json, cp='c', max_loop=1000, thred=10**(
             return new_guess
 
         if abs(new_guess - guess1) >= abs(new_guess - guess2):
-            guess1 = new_guess
             guess2 = guess1
+            guess1 = new_guess
         else:
             guess1 = new_guess
 
@@ -50,6 +55,11 @@ def regula(guess1, guess2, target, para_json, cp='c', max_loop=1000, thred=10**(
 
         para_json['vol'] = guess2
         guess_res2 = BS_Price(para_json, cp=cp) - target
+
+        if abs(guess_res1) < thred:
+            return guess1
+        if abs(guess_res2) < thred:
+            return guess2
 
         new_guess = (guess_res2 * guess1 - guess_res1 * guess2) / (guess_res2 - guess_res1)
         para_json['vol'] = new_guess
@@ -94,6 +104,12 @@ class TestBS(unittest.TestCase):
         res = newton(0.2, 3, self.price_json)
         self.assertEqual(0.1465, round(res, 4))
 
+        res = newton(0.2, 10, self.price_json)
+        self.assertEqual(0.4410, round(res, 4))
+
+        res = regula(0.04410, 0.2, 10, self.price_json)
+        self.assertEqual(0.4410, round(res, 4))
+
     def test_secant(self):
         res = secant(0.19, 0.2, 1, self.price_json)
         self.assertEqual(0.0614, round(res, 4))
@@ -101,11 +117,23 @@ class TestBS(unittest.TestCase):
         res = secant(0.19, 0.2, 3, self.price_json)
         self.assertEqual(0.1465, round(res, 4))
 
+        res = secant(0.19, 0.2, 10, self.price_json)
+        self.assertEqual(0.4410, round(res, 4))
+
+        res = regula(0.04410, 0.2, 10, self.price_json)
+        self.assertEqual(0.4410, round(res, 4))
+
     def test_regula(self):
         res = regula(0.19, 0.2, 1, self.price_json)
         self.assertEqual(0.0614, round(res, 4))
 
         res = regula(0.19, 0.2, 3, self.price_json)
         self.assertEqual(0.1465, round(res, 4))
+
+        res = regula(0.19, 0.2, 10, self.price_json)
+        self.assertEqual(0.4410, round(res, 4))
+
+        res = regula(0.04410, 0.2, 10, self.price_json)
+        self.assertEqual(0.4410, round(res, 4))
 
 
