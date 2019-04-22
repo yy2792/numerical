@@ -7,9 +7,13 @@ from root_solving.main_bull import helper_val
 mp = {
     'Secant Method': 'sec',
     'Regula Falsi': 'reg',
-    'Newton': 'new'
+    'Newton': 'new',
+    'Regular Falsi': 'reg',
 }
 
+mp2 = dict()
+for key in mp:
+    mp2[key.upper()] = mp[key]
 
 def load_trials():
     dir = os.path.dirname(os.path.abspath(__file__))
@@ -49,7 +53,7 @@ def locate(sht, row=200, col=10):
             if 'Q1_new' in loc_res and 'Q1_sec' in loc_res and 'Q1_reg' in loc_res:
                 break
             temp_name = sht.range((temp_row, q1_col)).value
-            if temp_name in ['Newton', 'Secant Method', 'Regula Falsi'] and temp_row > loc_res['t1'][0]:
+            if isinstance(temp_name, str) and temp_name.upper() in mp2 and temp_row > loc_res['t1'][0]:
                 loc_res['Q1_' + mp[temp_name]] = (temp_row, q1_col + 1)
 
     if 'Q2' in loc_res:
@@ -67,7 +71,7 @@ def locate(sht, row=200, col=10):
             if 'Q2_new' in loc_res and 'Q2_sec' in loc_res and 'Q2_reg' in loc_res:
                 break
             temp_name = sht.range((temp_row, q2_col)).value
-            if temp_name in ['Newton', 'Secant Method', 'Regula Falsi'] and temp_row > loc_res['t2'][0]:
+            if isinstance(temp_name, str) and temp_name.upper() in mp2 and temp_row > loc_res['t2'][0]:
                 loc_res['Q2_' + mp[temp_name]] = (temp_row, q2_col + 1)
 
     return loc_res
@@ -75,11 +79,10 @@ def locate(sht, row=200, col=10):
 
 def call_marco(path):
 
+    wb = xw.Book(path)
     errors = []
-
     trials = load_trials()
 
-    wb = xw.Book(path)
     run_macro = wb.macro('run')
 
     s = wb.sheets['grading sheet']
@@ -110,15 +113,16 @@ def call_marco(path):
         para_json['vol'] = sec1
         sec1_res = round(BS_Price(para_json), 4)
 
-        para_json['vol'] = reg1
-        reg1_res = round(BS_Price(para_json), 4)
+        if float(val) != 10:
+            para_json['vol'] = reg1
+            reg1_res = round(BS_Price(para_json), 4)
+            if reg1_res != float(val):
+                errors.append('Q1_reg_{}'.format(val))
 
         if new1_res != float(val):
             errors.append('Q1_new_{}'.format(val))
         if sec1_res != float(val):
             errors.append('Q1_sec_{}'.format(val))
-        if reg1_res != float(val):
-            errors.append('Q1_reg_{}'.format(val))
 
     # Q2
     para_json = trials['Price']['Q2']
@@ -154,9 +158,37 @@ def call_marco(path):
         if reg2_res != float(val):
             errors.append('Q2_reg_{}'.format(val))
 
-    print(errors)
     wb.close()
+
+def grading(wbpath):
+    target_files = []
+    graded_res = {}
+
+    # get all the xlsm files
+    for path, subdirs, files in os.walk(wbpath):
+        for filename in files:
+            if '.xlsm' in filename:
+                f = os.path.join(path, filename).replace('\'', '\\')
+                target_files.append(f)
+
+    for xlsm_path in target_files:
+        bookname = str(xlsm_path.split('\\')[-1])
+
+        try:
+            errors = call_marco(xlsm_path)
+            if errors is None:
+                continue
+            graded_res[bookname] = errors
+            print(bookname + ' graded, results:')
+            print(errors)
+        except Exception as e:
+            print(e)
+            print(bookname)
+            pass
 
 
 if __name__ == '__main__':
-    call_marco('/Users/yingkeyu/YingkeCode/numerical/submissions/zhaoyifei_292070_4616511_HW3_5030_yz3075.xlsm')
+    grading('/Users/yingkeyu/YingkeCode/numerical/submissions/')
+
+    #errors = call_marco('/Users/yingkeyu/YingkeCode/numerical/submissions/mishrapinakpani_393325_4620795_Pinakpani Mishra_HW3_1-1.xlsm')
+    #print(errors)

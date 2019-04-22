@@ -1,5 +1,6 @@
 from root_solving.BS_formula import BS_Price, BS_Vega
 import unittest
+import copy
 
 
 def newton(guess, target, para_json, cp='c', max_loop=1000, thred=10**(-8)):
@@ -135,3 +136,9 @@ class TestBS(unittest.TestCase):
 
         res = regula(0.19, 0.2, 8, self.price_json)
         self.assertEqual(0.3568, round(res, 4))
+
+    def test_custom(self):
+        para_json = copy.deepcopy(self.price_json)
+        para_json['vol'] = 0.359016
+        c = BS_Price(para_json, cp='c')
+        print(c)
