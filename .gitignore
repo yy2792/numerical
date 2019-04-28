@@ -127,3 +127,5 @@ grading.ipynb
 mid_score.ipynb
 test_script.ipynb
 *.csv
+
+./submissions

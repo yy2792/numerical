@@ -1,0 +1,47 @@
+test_case_Q1:
+  1:
+    pts: 2 * 3
+    converge:
+      newton: Yes
+      reg_falsi: Yes
+      sec: Yes
+  3:
+    pts: 2 * 3
+    converge:
+      newton: Yes
+      reg_falsi: Yes
+      sec: Yes
+  8:
+    pts: 2 * 3
+    converge:
+      newton: Yes
+      reg_falsi: Yes / No
+      sec: Yes
+  10:
+    pts: 2 * 3
+    converge:
+      newton: Yes
+      reg_falsi: Yes / No
+      sec: Yes
+test_case_Q2:
+  1.6:
+    pts: 2 * 3
+    converge:
+      newton: No (unless given custom start value)
+      reg_falsi: Yes
+      sec: Yes
+  1.7:
+    pts: 2 * 3
+    converge:
+      newton: Yes
+      reg_falsi: Yes
+      sec: Yes
+algo_too_slow:
+  pts: 2
+infinite loop:
+  pts: 5
+
+# for Q1 val 8, 10, one can argue regula-falsi does not work
+# for Q2 val 1.7 bull newton does not converge, but 1.6 converges
+# I round to 3 digits
+# again if I am 100% sure two homework are doppelganger, both get no credit
